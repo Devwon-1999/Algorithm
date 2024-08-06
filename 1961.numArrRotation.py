@@ -5,11 +5,17 @@
 T = int(input())
 
 for test_case in range(1, T + 1):
+    #입력
     N = int(input())
-    numList = []
-    for i in range(N):
-        temp = list(map(int, input().split()))
-        numList.append(temp)
+    numList = [list(map(int, input().split())) for _ in range(N)]
+
+    #90, 180, 270 뒤집음
+    numList90 = rotation(numList)
+    numList180 = rotation(numList180)
+    numList270 = rotation(numList270)
 
 
-    print(f"#{test_case} {numList}")
+    #출력
+    print(f"#{test_case}")
+    for a, b, c in zip(numList90, numList180, numList270):
+        print(f"{a} {b} {c}")
